@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-navy: #25243D;
+  --color-navy: #25243D;
+  --color-deep-navy: #17172B;
+  --color-navy-dark: #17172B;
+  --color-navy-deep: #0E0D1B;
+  --color-navy-surface: #1E1D33;
+  --color-navy-surface-light: #2B2A47;
+  --color-navy-border: #3A3959;
+
+  --color-antique-gold: #D6B45C;
+  --color-gold: #D6B45C;
+  --color-gold-dark: #B5933C;
+  --color-gold-muted: #8E732E;
+  --color-warm-gold: #E9CE83;
+  --color-gold-light: #E9CE83;
+  --color-gold-bright: #F3E0A7;
+
+  --color-cream: #F5EBDD;
+  --color-cream-light: #FAF4EC;
+  --color-cream-pure: #FFFDF9;
+  --color-cream-muted: #D1C5B4;
+  --color-cream-soft: #B8AC9A;
+
+  --color-wood: #593A25;
+  --color-wood-dark: #3D2617;
+  --color-wood-light: #7A5134;
+  --color-wooden-brown: #593A25;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--color-deep-navy);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(37, 36, 61, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(214, 180, 92, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(89, 58, 37, 0.15) 0%, transparent 55%);
+}
+
+#root {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Custom Antique Gold & Navy Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #17172B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25243D;
+  border-radius: 9999px;
+  border: 1px solid rgba(214, 180, 92, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D6B45C;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #D6B45C;
+  outline-offset: 3px;
+}
+
+/* Luxurious Antique Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFFDF9 0%, #F3E0A7 35%, #E9CE83 65%, #D6B45C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-foil-text {
+  background: linear-gradient(90deg, #F3E0A7 0%, #E9CE83 25%, #FFFDF9 50%, #D6B45C 75%, #F3E0A7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Luxury card with navy surface and antique gold hairline border */
+.vintage-card {
+  background: rgba(30, 29, 51, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(214, 180, 92, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.vintage-card:hover {
+  border-color: rgba(233, 206, 131, 0.6);
+  box-shadow: 0 16px 36px -12px rgba(14, 13, 27, 0.85), 0 0 24px -6px rgba(214, 180, 92, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Antique gold photo corner brackets */
+.gold-corner-frame {
+  position: relative;
+}
+.gold-corner-frame::before,
+.gold-corner-frame::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(214, 180, 92, 0.75);
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+.gold-corner-frame::before {
+  top: 8px;
+  left: 8px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.gold-corner-frame::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+.gold-corner-frame:hover::before {
+  top: 6px;
+  left: 6px;
+  width: 18px;
+  height: 18px;
+  border-color: #E9CE83;
+}
+.gold-corner-frame:hover::after {
+  bottom: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  border-color: #E9CE83;
+}
+
+/* Luxury button with antique-to-warm gold sheen */
+.btn-luxury-gold {
+  background: linear-gradient(135deg, #F3E0A7 0%, #E9CE83 50%, #D6B45C 100%);
+  color: #17172B;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px -2px rgba(214, 180, 92, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.7s ease;
+}
+
+.btn-luxury-gold:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+.btn-luxury-gold:hover {
+  box-shadow: 0 6px 26px 0 rgba(233, 206, 131, 0.6);
+  transform: translateY(-1.5px);
+  filter: brightness(1.05);
+}
+
+.btn-luxury-outline {
+  border: 1px solid rgba(214, 180, 92, 0.55);
+  color: #FAF4EC;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: rgba(37, 36, 61, 0.4);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.btn-luxury-outline:hover {
+  border-color: #E9CE83;
+  color: #F3E0A7;
+  background: rgba(30, 29, 51, 0.7);
+  box-shadow: 0 0 20px rgba(214, 180, 92, 0.25);
+  transform: translateY(-1.5px);
+}
+
+/* Restrained vertical wooden slat pattern accent */
+.wooden-slats-bg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(89, 58, 37, 0.08) 0px,
+    rgba(89, 58, 37, 0.08) 32px,
+    rgba(63, 40, 24, 0.18) 32px,
+    rgba(63, 40, 24, 0.18) 36px
+  );
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
